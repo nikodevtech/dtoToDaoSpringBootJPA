@@ -99,6 +99,7 @@ public class NotasEvaluacionServiceImpl implements NotasEvaluacionService {
 	}
 
 	@Override
+	@Transactional
 	public void actualizarNota(NotaDTO nota) {
 
 		Nota notaDAO = new Nota();
@@ -114,5 +115,22 @@ public class NotasEvaluacionServiceImpl implements NotasEvaluacionService {
 		notasEvaluacionRepositorio.save(notaDAO);
 
 	}
+	@Override
+	@Transactional
+	public List<NotaDTO> buscaNotasPorNotaDeEvaluacion(int nota) {
+		
+		List<Nota> listaNotas =notasEvaluacionRepositorio.buscaNotasPorNotaDeEvaluacion(nota);
+		List<NotaDTO> listaNotasDTO = new ArrayList<>();
+		for (Nota n : listaNotas) {
+			EvaluacionDTO evalDTO = new EvaluacionDTO();
+			evalDTO.setCodEvaluacion(n.getEvaluacion().getCodEvaluacion());
+			evalDTO.setDescEvaluacion(n.getEvaluacion().getDescEvaluacion());
+			listaNotasDTO.add(new NotaDTO(n.getCodAlumno(), n.getNotaEvaluacion(), evalDTO));
+		}
+		return listaNotasDTO;
+	
+	}
+
+
 
 }

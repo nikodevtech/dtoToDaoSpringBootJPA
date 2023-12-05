@@ -44,4 +44,11 @@ public interface NotasEvaluacionService {
 	 * @param idNota el id de la nota que se va a eliminar
 	 */
 	public void eliminarNota(int idNota);
+	
+	/**
+	 * Busca una nota de evaluación segun la nota dada
+	 * @param nota por la que se filtra
+	 * @return una lista de todas las notas
+	 */
+	public List<NotaDTO> buscaNotasPorNotaDeEvaluacion(int nota);
 }

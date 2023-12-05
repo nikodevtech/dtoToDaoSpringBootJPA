@@ -45,6 +45,10 @@ public class DtoDaoJpaApplication {
         controladorNt.insertarNota(notaEv2alumno1);
         controladorNt.insertarNota(notaEv3alumno1);
         
+        for (NotaDTO nota : controladorNt.buscarNotasPorNota(7)) {
+			System.out.println(nota.toString());
+		}
+        
 
 //        //PRUEBAS CONSOLA
 //        // Select all

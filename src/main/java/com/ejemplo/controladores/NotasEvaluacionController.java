@@ -33,5 +33,9 @@ public class NotasEvaluacionController {
     public List<NotaDTO> buscarNotasPorCodAlumno(String codAlumno){
     	return notasEvaluacionService.buscarNotasPorCodAlumno(codAlumno);
     }
+    
+	public List<NotaDTO> buscarNotasPorNota(int nota){
+		return notasEvaluacionService.buscaNotasPorNotaDeEvaluacion(nota);
+	}
 
 }
